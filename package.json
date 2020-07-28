@@ -1,0 +1,15 @@
+{
+  "name": "pdf_conversion",
+  "version": "1.0.0",
+  "description": "Test of nodejs tools for converting pdf to png.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pdf2html": "^2.5.2"
+  }
+}
