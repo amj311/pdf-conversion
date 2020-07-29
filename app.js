@@ -1,5 +1,8 @@
 const Stopwatch = require("./stopwatch");
 
+const pdfDirectory = "static";
+const pathToPdfFile = "static/Document6.pdf";
+
 /**
  * The following code utlizes a nodejs limbrary called pdf2html.
  * It works well inside of nodejs but has a few drawbacks:
@@ -12,7 +15,7 @@ function do_pdf2html() {
     const options = { page: 1, imageType: 'png', width: 50, height: 226 }
     
     pdf2htmlTimer = new Stopwatch("pdf2html", true);
-    pdf2html.thumbnail('static/Document6.pdf', options, (err, thumbnailPath) => {
+    pdf2html.thumbnail(pathToPdfFile, options, (err, thumbnailPath) => {
         if (err) {
             console.error('Conversion error: ' + err)
         } else {
@@ -40,7 +43,7 @@ function do_pdftoppm() {
 
     const pdftoppmTimer = new Stopwatch("pdftoppm", true);
 
-    exec("pdftoppm tmp/researchproposal.pdf tmp/outputname -png", (error, stdout, stderr) => {
+    exec(`pdftoppm ${pathToPdfFile} ${pdfDirectory}/outputname -png`, (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
             return;
